@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Kelden Timetable</title>
+  <style>
+    
+    body{
+      margin: 0;
+      font-family: arial;
+      background: lightgrey;
+      color: #1c2333;
+    }
+    header{
+      background: #1f4e79;
+      color: white;
+      padding: 16px;
+    }
+    .slot{
+      background: white;
+      border-left: 6px solid #2e86de;
+      
+      border-radius: 10px;
+      padding:12px 16px ;
+      margin-bottom: 12px;
+    }
+    .time{
+      font-weight: bold;
+      color: #2e86de;
+    }
+    .now{
+       border-left-color: #e67e22;
+    }
+    form{
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-right: 700px;
+    }
+   .form-group{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+   }
+   label{
+    font-size: 18px;
+    font-weight: bold;
+    color: #1f2937;
+   }
+   input,
+   select{
+    padding: 10px;
+    font-size: 16px;
+    
+   }
+   @media(min-width:700px) { 
+    .slots{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+   }
+   .submit{
+    margin-top: 6px;
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background-color: #1f4e79;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+   }
+   footer p{
+    text-align: center;
+    color: #2f3541;
+    font-size: 15px;
+   }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Kelden Timetable</h1>
+  <p>Software Engineering · Level 2 · Friday</p>
+</header>
+  <main>
+    <h2>Today's classes</h2>
+    <div class="slots">
+      
+      <section class="slot now">
+        <p class="time">08:00 – 10:00</p>
+        <h3>SWE 243 Databases</h3>
+        <p>Room A4 · Lecturer: Mrs Ewane</p>
+      </section>
+      <section class="slot">
+        <p class="time">10:00 – 12:00</p>
+        <h3>SWE 244 Object-Oriented Programing</h3>
+        <p>Room A5 · Lecturer: Mrs Dahlia</p>
+      </section>
+      <section class="slot">
+        <p class="time">13:00 – 15:00</p>
+        <h3>SWE 241 Mobile Terminals</h3>
+        <p>Room A6 · Lecturer: Mrs Nuella</p>
+      </section>
+    </div>
+    <h2>Monday Classes</h2>
+    <div class="slots">
+      <section class="slot now">
+        <p class="time">08:00 – 10:00</p>
+        <h3>SWE 243 Databases</h3>
+        <p>Room A4 · Lecturer: Mrs Ewane</p>
+      </section>
+      <section class="slot">
+        <p class="time">10:00 – 12:00</p>
+        <h3>SWE 244 Object-Oriented Programing</h3>
+        <p>Room A5 · Lecturer: Mrs Dahlia</p>
+      </section>
+    </div>
+     
+
+     <h2>Add a class</h2>
+    <form action="">
+      <div class="form-group">
+        <label for="course">Course</label>
+      <input type="text" placeholder="eg SWE 245 Networks">
+      </div>
+      <div class="form-group">
+      <label for="day">Day</label>
+      <select name="day">
+      <option value="">Monday</option>
+       <option value="">Tuesday</option>
+        <option value="">Wednesday</option>
+         <option value="">Thursday</option>
+          <option value="">Friday</option>
+      </select>
+      </div>
+      <div class="form-group">
+      <label for="start time">Start time</label>
+      <input type="time">
+      </div>
+      <button class="submit">Add to timetable</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Kelden University Institute .SWE 241 Practicals</p>
+  </footer>
+</body>
+</html>

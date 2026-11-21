@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 5 JavaScript</title>
+</head>
+<body>
+  <h1>Week 5: JavaScript practice</h1>
+  <p>Open the Console: press F12, then click "Console". All the results appear there.</p>
+
+<script>
+// ====== DATA: our timetable as an array of objects (do not change) ======
+const classes = [
+  { code: "SWE 243", title: "Databases",     start: 8,  end: 10, room: "Room A4" },
+  { code: "SWE 244", title: "OOP",           start: 10, end: 12, room: "Lab 1" },
+  { code: "SWE 241", title: "Mobile",        start: 13, end: 15, room: "Lab 1" },
+  { code: "SWE 245", title: "Networks",      start: 15, end: 17, room: "Room A2" }
+];
+
+// TASK 1: print your name and level, e.g. "Amina, level 2"
+let name = "Amina";
+let level = 2;
+console.log(name +', ' + "Level" + level);
+// TASK 2: const course = "SWE 241";  let students = 40;  add 5 students with +=
+//         then print "SWE 241 has 45 students"
+const course = 'SWE 241';
+let student = 40;
+student +=5;
+console.log(course + " has" + student + "students");
+
+// TASK 3: a form always gives TEXT. let input = "10";
+//         print input + 5 (what do you get?), then fix it with Number() to get 15
+
+let input = "10";
+console.log(input + 1);
+console.log(Number(input) + 1);
+// TASK 4: write function grade(avg) returning "A" (>=16), "B" (>=14), "C" (>=12), "D" (>=10) or "F"
+//         print grade(15), grade(9.99), grade(16)
+function grade(avg){
+  if (avg >= 16) return "A";
+  if (avg >= 14) return "B";
+  if (avg >= 12) return "C";
+  if (avg >= 10) return "D";
+  else return "F";
+ }
+ console.log(grade(15) + " " + grade(9.99) + " " + grade(16));
+
+// TASK 5: with a for loop, print the hours from 8:00 to 12:00 (8:00, 9:00 ... 12:00)
+for(let h=8; h<=12; h++){
+  console.log(h + ":00");
+}
+
+// TASK 6a: print every class like "10-12 SWE 244 OOP (Lab 1)"
+for(const c of classes){
+  console.log(c.start + "-" + c.end + " " + c.code + " " + c.title + "(" + c.room + ")");
+}
+
+// TASK 6b: count how many classes start at 10 or later, print "3 classes from 10:00"
+let count = 0;
+for(const c of classes){
+  if(c.start >=10)
+  count++;
+}
+console.log(count + "classes from 10:00");
+
+// TASK 6c: write function findByCode(list, code) that returns the class object, or null
+//          print findByCode(classes, "SWE 241").room  and  findByCode(classes, "SWE 999")
+
+function findByCode(list,code){
+  for( const c in list){
+    if(c.code === code)
+    return c;
+  }
+  return null;
+}
+console.log(findByCode(classes, "SWE 241").room);
+console.log(findByCode(classes, "SWE 999"));
+
+// TASK 6d: total hours of class in the day (end - start for each), print "Total: 8 hours"
+let total = 0;
+for(const c of classes){
+  total =+ c.end - c.start;
+}
+console.log("Total: " + total + " hours");
+// CHALLENGE: function addClass(list, code, title, start, end, room)
+//            refuse (print "Refused") if start >= end, otherwise push the new object.
+//            Then print classes.length
+
+function addClass(list, code, title, start, end, room){
+  if(start>=end){
+    console.log("Refused");
+    return false;
+  }
+  list.push({code: code, title:title, start:start, end: end, room:room});
+  return true;
+}
+addClass(classes, "SWE 246","Maths",17,15,"Room A1");
+addClass(classes, "SWE 246","Maths",17,18,"Room A1");
+console.log(classes.length);
+</script>
+</body>
+</html>
